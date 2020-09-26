@@ -3,10 +3,10 @@ import Cell from './components/Cell';
 import './App.css';
 
 function App() {
-	const [cellValue, setCellValue] = useState();
+	const [currentPostition, setCurrentPosition] = useState(0);
 
 	const moveForward = () => {
-		setCellValue(true);
+		setCurrentPosition(currentPostition + 1);
 	};
 	const turnRight = () => {};
 	return (
@@ -16,10 +16,10 @@ function App() {
 
 			<table>
 				<tbody>
-					{Array.from({ length: 10 }, (_) => (
-						<tr>
-							{Array.from({ length: 10 }, (_) => (
-								<Cell cellValue={cellValue} />
+					{Array.from({ length: 10 }, (_, x) => (
+						<tr id={x}>
+							{Array.from({ length: 10 }, (_, y) => (
+								<Cell idY={y} idX={x} currentPostition={currentPostition} />
 							))}
 						</tr>
 					))}

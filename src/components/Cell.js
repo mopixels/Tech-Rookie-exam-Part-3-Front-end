@@ -1,7 +1,8 @@
 import React from 'react';
 import arrow from './arrow.png';
 
-const Cell = ({ cellValue }) => {
+const Cell = ({ idY, idX, currentPostition }) => {
+	console.log(idY, idX);
 	const cellStyle = {
 		border: '1px solid',
 		height: '1rem',
@@ -13,7 +14,7 @@ const Cell = ({ cellValue }) => {
 	};
 	return (
 		<td className="cell" style={cellStyle}>
-			{cellValue && <img style={arrowStyle} src={arrow} />}
+			{currentPostition === idY && <img style={arrowStyle} src={arrow} />}
 		</td>
 	);
 };
