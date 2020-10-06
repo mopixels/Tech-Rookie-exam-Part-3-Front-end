@@ -1,20 +1,26 @@
 import React from 'react';
 import arrow from './arrow.png';
 
-const Cell = ({ idY, idX, currentPostition }) => {
-	console.log(idY, idX);
+const Cell = ({ y, x, coordinateX, coordinateY, arrowPosition }) => {
+	const cellCoordinates = [x, y].toString();
+	const currentLocation = [coordinateX, coordinateY].toString();
+
+	if (cellCoordinates === currentLocation) {
+		console.log('the one');
+		console.log(cellCoordinates, currentLocation);
+	}
 	const cellStyle = {
 		border: '1px solid',
-		height: '1rem',
-		width: '1rem',
+		height: '1.5rem',
+		width: '1.5rem',
 	};
-	const arrowStyle = {
-		height: '1rem',
-		width: '1rem',
-	};
+	console.log(arrowPosition);
+
 	return (
 		<td className="cell" style={cellStyle}>
-			{currentPostition === idY && <img style={arrowStyle} src={arrow} />}
+			{currentLocation === cellCoordinates && (
+				<img className={arrowPosition} src={arrow} />
+			)}
 		</td>
 	);
 };
